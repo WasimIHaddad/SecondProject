@@ -29,22 +29,14 @@ namespace SecondProject.Controllers
             _userManager = userManager;
         }
         // GET: api/<UserController>
-        [Route("api/user/all")]
-        [HttpGet]
         
-        
-        
-        public IActionResult Get()
-        {
-            return Ok();
-        }
 
         // GET api/<UserController>/5
-        [Route("api/user/get")]
+        [Route("api/user/{id}")]
         [HttpGet]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            return Ok();
         }
 
         // POST api/<UserController>
@@ -75,7 +67,7 @@ namespace SecondProject.Controllers
         }
 
         // DELETE api/<UserController>/5
-        [Route("api/user/Delete")]
+        [Route("api/user/{id}")]
         [HttpDelete]
         public IActionResult Delete( int id)
         {

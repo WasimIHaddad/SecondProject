@@ -80,7 +80,7 @@ namespace SecondProject.DbModel.Models
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("ItemId_UserId");
+                    .HasConstraintName("item_cID");
 
                 entity.Property(e => e.CreatorId).HasColumnType("int unsigned");
 
@@ -88,7 +88,7 @@ namespace SecondProject.DbModel.Models
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.CreatorId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("CreateId_UserId");
+                    .HasConstraintName("item_uId");
             });
 
             modelBuilder.Entity<User>(entity =>

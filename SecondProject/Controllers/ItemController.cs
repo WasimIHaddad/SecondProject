@@ -15,7 +15,7 @@ using System.Linq;
 
 namespace SecondProject.Controllers
 {
-    [Route("api/[controller]")]
+    
     [ApiController]
     public class ItemController : ApiBaseController
     {
@@ -27,7 +27,7 @@ namespace SecondProject.Controllers
             _logger = logger;
         }
 
-        [Route("api/blog")]
+        [Route("api/item/get")]
         [HttpGet]
         public IActionResult GetBlogs(int page = 1, int pageSize = 5, string sortColumn = "", string sortDirection = "ascending", string searchText = "")
         {
@@ -35,7 +35,7 @@ namespace SecondProject.Controllers
             return Ok(result);
         }
 
-        [Route("api/blog/{id}")]
+        [Route("api/item/{id}")]
         [HttpGet]
         public IActionResult GetBlog(int id)
         {
@@ -43,7 +43,7 @@ namespace SecondProject.Controllers
             return Ok(result);
         }
 
-        [Route("api/blog/{id}")]
+        [Route("api/item/{id}")]
         [HttpDelete]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [SecondProjectAuthorizeAttribute()]
@@ -52,7 +52,7 @@ namespace SecondProject.Controllers
             _itemManager.ArchiveBlog(LoggedInUser, id);
             return Ok();
         }
-        [Route("api/blog/{id}")]
+        [Route("api/item/IsRead{id}")]
         [HttpDelete]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [SecondProjectAuthorizeAttribute()]
@@ -62,7 +62,7 @@ namespace SecondProject.Controllers
             return Ok();
         }
 
-        [Route("api/blog")]
+        [Route("api/item")]
         [HttpPut]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [SecondProjectAuthorizeAttribute()]
